@@ -1,7 +1,9 @@
+// App.js
 import React, { useState } from 'react';
 import BottomPanel from './components/BottomPanel';
-import './App.css'; 
 import HeaderSection from './components/HeaderSection';
+import { Main } from './components/Main';
+import './App.css'; 
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -12,9 +14,13 @@ function App() {
   };
 
   return (
-    <div className={`${isDarkMode ? 'bg-[#1B1B2A]' : 'bg-[#A8A6A6]'}`}>
-      <HeaderSection isDarkMode={isDarkMode} toggleMode={toggleMode}/>
-
+    <div className={`flex flex-col h-screen ${isDarkMode ? 'bg-[#1B1B2A]' : 'bg-[#A8A6A6]'}`}>
+      <HeaderSection isDarkMode={isDarkMode} toggleMode={toggleMode} />
+      
+    
+        <Main  isDarkMode={isDarkMode}/>
+  
+      
       <BottomPanel isDarkMode={isDarkMode} />
     </div>
   );

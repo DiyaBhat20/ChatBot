@@ -3,8 +3,8 @@ import React from 'react';
 const RadioGroup = ({ selectedOption, handleOptionChange, isDarkMode }) => {
 
   return (
-    <div className={`radio-group flex flex-col gap-3 w-1/3 ml-0 mx-4`}>
-      <label className={`radio-item py-2 px-4 rounded-3xl ${isDarkMode ? 'bg-[#1B1B2A] text-white' : 'bg-[#A8A6A6] text-black'}`}>
+    <div className={`mb-3 radio-group flex flex-col gap-3 md:w-1/3 ml-0 mx-4 w-full`}>
+      <label className={`radio-item py-1 px-4 rounded-3xl text-md    ${isDarkMode ? 'bg-[#1B1B2A] text-white' : 'bg-[#A8A6A6] text-black'}`}>
         <input 
           type="radio" 
           value="Text Summarization" 
@@ -15,7 +15,7 @@ const RadioGroup = ({ selectedOption, handleOptionChange, isDarkMode }) => {
         Text Summarization
       </label>
 
-      <label className={`radio-item py-2 px-4 rounded-3xl ${isDarkMode ? 'bg-[#1B1B2A] text-white' : 'bg-[#A8A6A6] text-black'}`}>
+      <label className={`radio-item py-1 px-4 rounded-3xl text-md ${isDarkMode ? 'bg-[#1B1B2A] text-white' : 'bg-[#A8A6A6] text-black'}`}>
         <input 
           type="radio" 
           value="Audio Transcription & Summarization" 
@@ -26,7 +26,7 @@ const RadioGroup = ({ selectedOption, handleOptionChange, isDarkMode }) => {
         Audio Transcription and Summarization
       </label>
 
-      <label className={`radio-item py-2 px-4 rounded-3xl ${isDarkMode ? 'bg-[#1B1B2A] text-white' : 'bg-[#A8A6A6] text-black'}`}>
+      <label className={`radio-item py-1 px-4 rounded-3xl text-md ${isDarkMode ? 'bg-[#1B1B2A] text-white' : 'bg-[#A8A6A6] text-black'}`}>
         <input 
           type="radio" 
           value="Psychological Profile Summarization" 
@@ -37,7 +37,7 @@ const RadioGroup = ({ selectedOption, handleOptionChange, isDarkMode }) => {
         Psychological Profile Summarization
       </label>
 
-      <label className={`radio-item py-2 px-4 rounded-3xl ${isDarkMode ? 'bg-[#1B1B2A] text-white' : 'bg-[#A8A6A6] text-black'}`}>
+      <label className={`radio-item py-1 px-4 rounded-3xl text-md ${isDarkMode ? 'bg-[#1B1B2A] text-white' : 'bg-[#A8A6A6] text-black'}`}>
         <input 
           type="radio" 
           value="Find Location and Generate Google Maps Link" 

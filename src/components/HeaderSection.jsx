@@ -2,7 +2,7 @@ import { FiSun, FiMoon } from 'react-icons/fi';
 
 const HeaderSection=({isDarkMode,toggleMode})=>{
   return(
-    <header className={`fixed top-0 left-0 w-full h-16 ${isDarkMode?'bg-[#A8A6A6] text[#051E3D]':'bg-[#051E3D] text-[#A8A6A6]'} flex justify-between items-center px-4 z-50`}>
+    <header className={`top-0 left-0 w-full h-16 ${isDarkMode?'bg-[#A8A6A6] text[#051E3D]':'bg-[#051E3D] text-[#A8A6A6]'} flex justify-between items-center px-4 z-50`}>
       <div className="text-xl font-bold">
         ChatBot
       </div>
