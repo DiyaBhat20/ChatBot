@@ -1,3 +1,4 @@
+import AudioPlay from "../components/AudioPlay";
 const TextInput = ({isDarkMode,selectedOption}) => {
   if(selectedOption==="Text Summarization" || selectedOption==="Psychological Profile Summarization")
   {return (
@@ -12,8 +13,9 @@ const TextInput = ({isDarkMode,selectedOption}) => {
   else if(selectedOption==="Audio Transcription & Summarization")
   {
     return(
-      <>
-      </>
+      <div className="w-full h-full bg-transparent flex justify-center items-center">
+        <AudioPlay/>
+    </div>
     );
   }
 
