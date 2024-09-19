@@ -26,7 +26,6 @@ const BottomPanel = ({ isDarkMode, addMessageToMainBox }) => {
     }
   };
 
-  // Handle submission and validation
   const handleClick = () => {
     let message = { text: input, file: fileInput, option: selectedOption };
 
@@ -39,21 +38,57 @@ const BottomPanel = ({ isDarkMode, addMessageToMainBox }) => {
         const fileLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(fileInput.name)}`;
         //message.text += `\nGoogle Maps Link: ${fileLink}`;
       }
-    } else if (selectedOption === "Audio Transcription & Summarization") {
+      addMessageToMainBox(message);  // Send the input and file to MainBox
+      setInput('');  // Clear the input after submission
+      setFileInput(null);  // Clear file input after submission
+      setError('');      
+    } 
+    else if (selectedOption === "Audio Transcription & Summarization") {
       if (!fileInput) {
         setError('Please upload an audio file.');
         return;
       }
       message.text = `Audio File: ${fileInput.name}`;
-    } else if (!input) {
-      setError('Please enter some text.');
-      return;
+      addMessageToMainBox(message);  // Send the input and file to MainBox
+      setInput('');  // Clear the input after submission
+      setFileInput(null);  // Clear file input after submission
+      setError('');      
+    } 
+
+    else if(selectedOption==="Text Summarization"){
+      if(!input){
+        setError('Please enter some text.');
+        return;
+      }
+      else{
+        addMessageToMainBox(message);  // Send the input and file to MainBox
+        setInput('');  // Clear the input after submission
+        setFileInput(null);  // Clear file input after submission
+        setError('');        
+      }
     }
 
-    addMessageToMainBox(message);  // Send the input and file to MainBox
+    else if(selectedOption==="Psychological Profile Summarization"){
+      if(!input){
+        setError('Please enter some text.');
+        return;
+      }
+      else{
+        addMessageToMainBox(message);  // Send the input and file to MainBox
+        setInput('');  // Clear the input after submission
+        setFileInput(null);  // Clear file input after submission
+        setError('');        
+      }      
+    }
+    /*else if (!input) {
+      setError('Please enter some text.');
+      return;
+    }*/
+
+    /*addMessageToMainBox(message);  // Send the input and file to MainBox
     setInput('');  // Clear the input after submission
     setFileInput(null);  // Clear file input after submission
-    setError('');  // Clear errors
+    setError('');  // Clear errors*/
   };
 
   return (
