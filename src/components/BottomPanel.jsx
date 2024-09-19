@@ -38,6 +38,16 @@ const BottomPanel = ({ isDarkMode, addMessageToMainBox }) => {
         const fileLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(fileInput.name)}`;
         //message.text += `\nGoogle Maps Link: ${fileLink}`;
       }
+      const getData=async()=>{
+        try
+        {
+             const res=await axios('/');
+             
+        }catch(err)
+        {
+
+        }}
+        getData();
       addMessageToMainBox(message);  // Send the input and file to MainBox
       setInput('');  // Clear the input after submission
       setFileInput(null);  // Clear file input after submission
@@ -48,6 +58,16 @@ const BottomPanel = ({ isDarkMode, addMessageToMainBox }) => {
         setError('Please upload an audio file.');
         return;
       }
+      const getData=async()=>{
+        try
+        {
+             const res=await axios('/');
+             
+        }catch(err)
+        {
+
+        }}
+        getData();
       message.text = `Audio File: ${fileInput.name}`;
       addMessageToMainBox(message);  // Send the input and file to MainBox
       setInput('');  // Clear the input after submission
@@ -61,10 +81,21 @@ const BottomPanel = ({ isDarkMode, addMessageToMainBox }) => {
         return;
       }
       else{
-        addMessageToMainBox(message);  // Send the input and file to MainBox
+       
+        const getData=async()=>{
+        try
+        {
+             const res=await axios('/');
+
+        }catch(err)
+        {
+
+        }}
+        getData();
+        addMessageToMainBox(message);  
         setInput('');  // Clear the input after submission
         setFileInput(null);  // Clear file input after submission
-        setError('');        
+        setError('');   
       }
     }
 
@@ -74,6 +105,16 @@ const BottomPanel = ({ isDarkMode, addMessageToMainBox }) => {
         return;
       }
       else{
+        const getData=async()=>{
+          try
+          {
+               const res=await axios('/');
+               
+          }catch(err)
+          {
+  
+          }}
+          getData();
         addMessageToMainBox(message);  // Send the input and file to MainBox
         setInput('');  // Clear the input after submission
         setFileInput(null);  // Clear file input after submission
@@ -117,7 +158,7 @@ const BottomPanel = ({ isDarkMode, addMessageToMainBox }) => {
 
 
           <button onClick={handleClick} className={`absolute bottom-2 text-sm right-5 border w-6 h-6 md:w-10 md:h-10 flex justify-center items-center rounded-full 
-   {isDarkMode ? 'bg-[#1B1B2A] border-black hover:bg-[#10101a]' : 'bg-[#A8A6A6] border-black hover:bg-[#9d9b9b]'}`}>
+   {isDarkMode ? 'bg-[#1B1B2A] border-black hover:bg-[#10101a]' : 'bg-[#A8A6A6]  hover:bg-[#9d9b9b]'}`}>
             <FaArrowUp className="w-3 h-3 md:h-6 md:w-6" />
           </button>
         </div>
