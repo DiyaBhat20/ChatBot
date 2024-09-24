@@ -3,7 +3,7 @@ import React from 'react';
 const RadioGroup = ({ selectedOption, handleOptionChange, isDarkMode }) => {
 
   return (
-    <div className={` radio-group flex flex-col gap-3 md:w-1/3  md:mb-3 md:ml-0 md:mb-0 ml-0 mx-4 mb-3 w-full`}>
+    <div className={` radio-group flex flex-col gap-3 md:w-1/3  md:mb-3 md:ml-0  ml-0 mx-4 mb-3 w-full`}>
       <label className={`radio-item py-1 px-4 rounded-3xl text-md    ${isDarkMode ? 'bg-[#1B1B2A] text-white' : 'bg-[#A8A6A6] text-black'}`}>
         <input 
           type="radio" 

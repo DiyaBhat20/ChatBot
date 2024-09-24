@@ -8,6 +8,7 @@ function App() {
   const [input, setInput] = useState('');
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [messages, setMessages] = useState([]);  // New state for messages
+  //const [output,setOutput]=useState([]);   //for output
 
   const toggleMode = () => {
     setIsDarkMode(!isDarkMode);
@@ -22,10 +23,8 @@ function App() {
   return (
     <div className={`flex flex-col h-screen ${isDarkMode ? 'bg-[#1B1B2A]' : 'bg-[#A8A6A6]'}`}>
       <HeaderSection isDarkMode={isDarkMode} toggleMode={toggleMode} />
-      
-      <Main isDarkMode={isDarkMode} messages={messages} /> {/* Pass messages to Main */}
-      
-      <BottomPanel isDarkMode={isDarkMode} addMessageToMainBox={addMessageToMainBox} /> {/* Pass the function */}
+      <Main isDarkMode={isDarkMode} messages={messages} />{/* Pass messages to Main */}
+      <BottomPanel isDarkMode={isDarkMode} addMessageToMainBox={addMessageToMainBox} setOutput={setMessages}/> {/* Pass the function */}
     </div>
   );
 }
