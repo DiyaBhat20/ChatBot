@@ -17,6 +17,7 @@ function App() {
 
   // Function to add messages (text or file) to the state
   const addMessageToMainBox = (message) => {
+    console.log("messages:",message)
     setMessages((prevMessages) => [...prevMessages, message]);
   };
 
@@ -24,7 +25,7 @@ function App() {
     <div className={`flex flex-col h-screen ${isDarkMode ? 'bg-[#1B1B2A]' : 'bg-[#A8A6A6]'}`}>
       <HeaderSection isDarkMode={isDarkMode} toggleMode={toggleMode} />
       <Main isDarkMode={isDarkMode} messages={messages} />{/* Pass messages to Main */}
-      <BottomPanel isDarkMode={isDarkMode} addMessageToMainBox={addMessageToMainBox} setOutput={setMessages}/> {/* Pass the function */}
+      <BottomPanel isDarkMode={isDarkMode} addMessageToMainBox={addMessageToMainBox} setMessages={setMessages}/> {/* Pass the function */}
     </div>
   );
 }

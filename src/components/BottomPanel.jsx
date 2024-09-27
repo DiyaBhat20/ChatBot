@@ -7,7 +7,7 @@ import Cookies from 'js-cookie';
 
 
 
-const BottomPanel = ({ isDarkMode, addMessageToMainBox ,setoutput}) => {
+const BottomPanel = ({ isDarkMode, addMessageToMainBox ,setMessages}) => {
   const [input, setInput] = useState("");  // Manage text input state
   const [fileInput, setFileInput] = useState(null);  // Manage file input state (image or audio)
   const [selectedOption, setSelectedOption] = useState('');
@@ -33,51 +33,6 @@ const BottomPanel = ({ isDarkMode, addMessageToMainBox ,setoutput}) => {
   const handleClick = () => {
     let message = { text: input, file: fileInput, option: selectedOption };
 
-
-
-    //completed 
-    // if (selectedOption === "Find Location and Generate Google Maps Link") {
-    //   if (!input) {
-    //     setError('Please provide a location description.');
-    //     return;
-    //   }
-
-    //   const getData = async () => {
-    //     try {
-    //       const endpoint = 'http://127.0.0.1:8000/api/find-location/'; // Correct endpoint for description
-
-    //       // Send the description in the correct format
-    //       const res = await axios.post(endpoint, { description: input });
-
-    //       console.log('Response from description endpoint:', res.data);
-
-    //       if (res.data.latitude && res.data.longitude) {
-    //         const fileLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${res.data.latitude},${res.data.longitude}`)}`;
-    //         addMessageToMainBox(`Google Maps Link: ${fileLink}`);
-    //       } else {
-    //         setError('No location found from the description.');
-    //       }
-    //     } catch (err) {
-    //       console.error('Error:', err);
-    //       if (err.response) {
-    //         console.error('Response Data:', err.response.data);
-    //         if (err.response.status === 404) {
-    //           setError('The requested resource could not be found.');
-    //         } else {
-    //           setError('An error occurred while finding the location.');
-    //         }
-    //       } else {
-    //         setError('An error occurred while finding the location.');
-    //       }
-    //     }
-    //   };
-
-    //   getData();
-
-    //   setInput('');
-    //   setError('');
-    // }
-    
     if (selectedOption === "Find Location and Generate Google Maps Link") {
       if (!input) {
         setError('Please provide a location description.');
@@ -90,7 +45,7 @@ const BottomPanel = ({ isDarkMode, addMessageToMainBox ,setoutput}) => {
           const res = await axios.post(endpoint, { description: input });
     
           console.log('Response from description endpoint:', res.data);
-    
+          addMessageToMainBox({text:res.data,file:null,option:"Find Location and Generate Google Maps Link"});
           if (res.data.latitude && res.data.longitude) {
             setoutput(res.data);
             const fileLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${res.data.latitude},${res.data.longitude}`)}`;
@@ -132,8 +87,7 @@ const BottomPanel = ({ isDarkMode, addMessageToMainBox ,setoutput}) => {
             console.log('Response from landmark endpoint:', res.data);
     
             if (res.data.landmark_description) {
-                 //-->>>ouput 
-                 setoutput(res.data);
+              addMessageToMainBox({text:res.data,file:null,option:"Find Location and Generate Google Maps Link"})
               addMessageToMainBox(`Landmark Description: ${res.data.landmark_description}`);
             } else {
               setError('No landmark detected from the image.');
@@ -185,7 +139,7 @@ const BottomPanel = ({ isDarkMode, addMessageToMainBox ,setoutput}) => {
     
           // Handle the response
              //-->>>ouput 
-             setoutput(res.data);
+          addMessageToMainBox({text:res.data,file:null,option:"Audio Transcription & Summarization"});
           if (res.data.transcription) {
             addMessageToMainBox(`Transcription: ${res.data.transcription}`); // Display the transcription
             if (res.data.summary) {
@@ -235,7 +189,7 @@ const BottomPanel = ({ isDarkMode, addMessageToMainBox ,setoutput}) => {
 
             // Handle the response here
                //-->>>ouput 
-               setoutput(res.data);
+            addMessageToMainBox({text:res.data,file:null,option:"Text Summarization"})
             if (res.data.summary) {
               addMessageToMainBox(res.data.summary); // Display the summary
             } else {
@@ -284,7 +238,7 @@ const BottomPanel = ({ isDarkMode, addMessageToMainBox ,setoutput}) => {
             console.log('Response:', res.data);
             
                //-->>>ouput 
-               setoutput(res.data);
+            addMessageToMainBox({text:res.data,file:null,option:"Psychological Profile Summarization"})
             if (res.data.summary) {
               addMessageToMainBox(res.data.summary); // Display the summary
             } else {
